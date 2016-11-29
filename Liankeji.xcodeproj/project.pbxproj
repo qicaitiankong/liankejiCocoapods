@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B3C91A23811F61D8BFFF1E5 /* libPods-Liankeji.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F252549BA2B14C997713502 /* libPods-Liankeji.a */; };
 		99E41F2C1DED0E0D00F32968 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F2B1DED0E0D00F32968 /* main.m */; };
 		99E41F2F1DED0E0D00F32968 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F2E1DED0E0D00F32968 /* AppDelegate.m */; };
 		99E41F321DED0E0D00F32968 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F311DED0E0D00F32968 /* ViewController.m */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		171D16133C96CADD3DD4CC71 /* Pods-Liankeji.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liankeji.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Liankeji/Pods-Liankeji.debug.xcconfig"; sourceTree = "<group>"; };
+		6F252549BA2B14C997713502 /* libPods-Liankeji.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Liankeji.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E41F271DED0E0D00F32968 /* Liankeji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liankeji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E41F2B1DED0E0D00F32968 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99E41F2D1DED0E0D00F32968 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		99E41F4B1DED0E0D00F32968 /* LiankejiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiankejiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E41F4F1DED0E0D00F32968 /* LiankejiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiankejiUITests.m; sourceTree = "<group>"; };
 		99E41F511DED0E0D00F32968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C28E2609DC27D38C622EB451 /* Pods-Liankeji.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liankeji.release.xcconfig"; path = "Pods/Target Support Files/Pods-Liankeji/Pods-Liankeji.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B3C91A23811F61D8BFFF1E5 /* libPods-Liankeji.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		82A04DE6B425D207E39EFC6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F252549BA2B14C997713502 /* libPods-Liankeji.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		99E41F1E1DED0E0D00F32968 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +98,8 @@
 				99E41F431DED0E0D00F32968 /* LiankejiTests */,
 				99E41F4E1DED0E0D00F32968 /* LiankejiUITests */,
 				99E41F281DED0E0D00F32968 /* Products */,
+				A0CFF79DB7A0B244AB733FD2 /* Pods */,
+				82A04DE6B425D207E39EFC6B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +155,15 @@
 			path = LiankejiUITests;
 			sourceTree = "<group>";
 		};
+		A0CFF79DB7A0B244AB733FD2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				171D16133C96CADD3DD4CC71 /* Pods-Liankeji.debug.xcconfig */,
+				C28E2609DC27D38C622EB451 /* Pods-Liankeji.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99E41F541DED0E0D00F32968 /* Build configuration list for PBXNativeTarget "Liankeji" */;
 			buildPhases = (
+				22A524FE7D74E96EC9D72C21 /* [CP] Check Pods Manifest.lock */,
 				99E41F231DED0E0D00F32968 /* Sources */,
 				99E41F241DED0E0D00F32968 /* Frameworks */,
 				99E41F251DED0E0D00F32968 /* Resources */,
+				7F891D1A004AB64AAC6E19C5 /* [CP] Embed Pods Frameworks */,
+				2D10C98EC17B74DD19548D86 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,6 +294,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22A524FE7D74E96EC9D72C21 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2D10C98EC17B74DD19548D86 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Liankeji/Pods-Liankeji-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F891D1A004AB64AAC6E19C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Liankeji/Pods-Liankeji-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		99E41F231DED0E0D00F32968 /* Sources */ = {
@@ -412,6 +487,7 @@
 		};
 		99E41F551DED0E0D00F32968 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 171D16133C96CADD3DD4CC71 /* Pods-Liankeji.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Liankeji/Info.plist;
@@ -423,6 +499,7 @@
 		};
 		99E41F561DED0E0D00F32968 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C28E2609DC27D38C622EB451 /* Pods-Liankeji.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Liankeji/Info.plist;
