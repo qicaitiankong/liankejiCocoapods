@@ -51,7 +51,6 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.showsHorizontalScrollIndicator = YES;
     [self addSubview:self.scrollView];
-    
     UIImageView *firstImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
     //firstImageView.contentMode = IMAGEVIEW_CONTENTMODE;
     firstImageView.image = [UIImage imageNamed:[sourceArr lastObject]];

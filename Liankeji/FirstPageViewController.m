@@ -56,7 +56,6 @@
     self.scoView.pagingEnabled = NO;
     //self.scoView.delegate = self;
     [self.view addSubview:self.scoView];
-    
     for(NSInteger i = 0 ; i < 3; i ++){
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i *WIDTH, 0, WIDTH, 150)];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
