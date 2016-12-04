@@ -8,14 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		7B3C91A23811F61D8BFFF1E5 /* libPods-Liankeji.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F252549BA2B14C997713502 /* libPods-Liankeji.a */; };
+		992D730B1DF114F000FFD2DD /* NewsTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 992D730A1DF114F000FFD2DD /* NewsTestModel.m */; };
+		992D730E1DF1557300FFD2DD /* GetCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 992D730D1DF1557300FFD2DD /* GetCellHeight.m */; };
+		99554A4E1DF012BF0028A59E /* ShareHomePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 99554A4D1DF012BF0028A59E /* ShareHomePath.m */; };
+		999D99471DF04C950067CFBA /* ShareDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 999D99461DF04C950067CFBA /* ShareDataBase.m */; };
+		99BDE0561DF3DE020079EEF8 /* FFScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDE0551DF3DE020079EEF8 /* FFScrollView.m */; };
+		99BDE05A1DF3E69F0079EEF8 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99BDE0571DF3E69F0079EEF8 /* 1.jpg */; };
+		99BDE05B1DF3E69F0079EEF8 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99BDE0581DF3E69F0079EEF8 /* 2.jpg */; };
+		99BDE05C1DF3E69F0079EEF8 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99BDE0591DF3E69F0079EEF8 /* 3.jpg */; };
 		99E41F2C1DED0E0D00F32968 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F2B1DED0E0D00F32968 /* main.m */; };
 		99E41F2F1DED0E0D00F32968 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F2E1DED0E0D00F32968 /* AppDelegate.m */; };
-		99E41F321DED0E0D00F32968 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F311DED0E0D00F32968 /* ViewController.m */; };
-		99E41F351DED0E0D00F32968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E41F331DED0E0D00F32968 /* Main.storyboard */; };
 		99E41F371DED0E0D00F32968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E41F361DED0E0D00F32968 /* Assets.xcassets */; };
 		99E41F3A1DED0E0D00F32968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E41F381DED0E0D00F32968 /* LaunchScreen.storyboard */; };
 		99E41F451DED0E0D00F32968 /* LiankejiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F441DED0E0D00F32968 /* LiankejiTests.m */; };
 		99E41F501DED0E0D00F32968 /* LiankejiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F4F1DED0E0D00F32968 /* LiankejiUITests.m */; };
+		99E41F631DED270300F32968 /* NavViewControllerForFirstPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F621DED270300F32968 /* NavViewControllerForFirstPage.m */; };
+		99E41F661DED291A00F32968 /* NavViewControllerForPersonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F651DED291A00F32968 /* NavViewControllerForPersonal.m */; };
+		99E41F691DED29FD00F32968 /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F681DED29FD00F32968 /* FirstPageViewController.m */; };
+		99E41F6C1DED2A8900F32968 /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F6B1DED2A8900F32968 /* PersonalTableViewController.m */; };
+		99E41F731DED2B1E00F32968 /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F721DED2B1E00F32968 /* PersonalTableViewCell.m */; };
+		99E41F7A1DED4D2000F32968 /* tab1.png in Resources */ = {isa = PBXBuildFile; fileRef = 99E41F791DED4D2000F32968 /* tab1.png */; };
+		99E41F7E1DED5AEF00F32968 /* tab2.png in Resources */ = {isa = PBXBuildFile; fileRef = 99E41F7D1DED5AEF00F32968 /* tab2.png */; };
+		99E41F851DED696100F32968 /* ShareNetWorkState.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F841DED696100F32968 /* ShareNetWorkState.m */; };
+		99E41F881DED7EDD00F32968 /* ShareUrlString.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41F871DED7EDD00F32968 /* ShareUrlString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +53,23 @@
 /* Begin PBXFileReference section */
 		171D16133C96CADD3DD4CC71 /* Pods-Liankeji.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liankeji.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Liankeji/Pods-Liankeji.debug.xcconfig"; sourceTree = "<group>"; };
 		6F252549BA2B14C997713502 /* libPods-Liankeji.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Liankeji.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		992D73091DF114F000FFD2DD /* NewsTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTestModel.h; sourceTree = "<group>"; };
+		992D730A1DF114F000FFD2DD /* NewsTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTestModel.m; sourceTree = "<group>"; };
+		992D730C1DF1557300FFD2DD /* GetCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCellHeight.h; sourceTree = "<group>"; };
+		992D730D1DF1557300FFD2DD /* GetCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCellHeight.m; sourceTree = "<group>"; };
+		99554A4C1DF012BF0028A59E /* ShareHomePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareHomePath.h; sourceTree = "<group>"; };
+		99554A4D1DF012BF0028A59E /* ShareHomePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareHomePath.m; sourceTree = "<group>"; };
+		999D99451DF04C950067CFBA /* ShareDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareDataBase.h; sourceTree = "<group>"; };
+		999D99461DF04C950067CFBA /* ShareDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareDataBase.m; sourceTree = "<group>"; };
+		99BDE0541DF3DE020079EEF8 /* FFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFScrollView.h; sourceTree = "<group>"; };
+		99BDE0551DF3DE020079EEF8 /* FFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFScrollView.m; sourceTree = "<group>"; };
+		99BDE0571DF3E69F0079EEF8 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		99BDE0581DF3E69F0079EEF8 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		99BDE0591DF3E69F0079EEF8 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		99E41F271DED0E0D00F32968 /* Liankeji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liankeji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E41F2B1DED0E0D00F32968 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99E41F2D1DED0E0D00F32968 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99E41F2E1DED0E0D00F32968 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		99E41F301DED0E0D00F32968 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		99E41F311DED0E0D00F32968 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		99E41F341DED0E0D00F32968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99E41F361DED0E0D00F32968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99E41F391DED0E0D00F32968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99E41F3B1DED0E0D00F32968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +79,22 @@
 		99E41F4B1DED0E0D00F32968 /* LiankejiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiankejiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E41F4F1DED0E0D00F32968 /* LiankejiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiankejiUITests.m; sourceTree = "<group>"; };
 		99E41F511DED0E0D00F32968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99E41F611DED270300F32968 /* NavViewControllerForFirstPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavViewControllerForFirstPage.h; sourceTree = "<group>"; };
+		99E41F621DED270300F32968 /* NavViewControllerForFirstPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavViewControllerForFirstPage.m; sourceTree = "<group>"; };
+		99E41F641DED291A00F32968 /* NavViewControllerForPersonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavViewControllerForPersonal.h; sourceTree = "<group>"; };
+		99E41F651DED291A00F32968 /* NavViewControllerForPersonal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavViewControllerForPersonal.m; sourceTree = "<group>"; };
+		99E41F671DED29FD00F32968 /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstPageViewController.h; sourceTree = "<group>"; };
+		99E41F681DED29FD00F32968 /* FirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstPageViewController.m; sourceTree = "<group>"; };
+		99E41F6A1DED2A8900F32968 /* PersonalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewController.h; sourceTree = "<group>"; };
+		99E41F6B1DED2A8900F32968 /* PersonalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewController.m; sourceTree = "<group>"; };
+		99E41F711DED2B1E00F32968 /* PersonalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewCell.h; sourceTree = "<group>"; };
+		99E41F721DED2B1E00F32968 /* PersonalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewCell.m; sourceTree = "<group>"; };
+		99E41F791DED4D2000F32968 /* tab1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab1.png; sourceTree = "<group>"; };
+		99E41F7D1DED5AEF00F32968 /* tab2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab2.png; sourceTree = "<group>"; };
+		99E41F831DED696100F32968 /* ShareNetWorkState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareNetWorkState.h; sourceTree = "<group>"; };
+		99E41F841DED696100F32968 /* ShareNetWorkState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareNetWorkState.m; sourceTree = "<group>"; };
+		99E41F861DED7EDD00F32968 /* ShareUrlString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUrlString.h; sourceTree = "<group>"; };
+		99E41F871DED7EDD00F32968 /* ShareUrlString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUrlString.m; sourceTree = "<group>"; };
 		C28E2609DC27D38C622EB451 /* Pods-Liankeji.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liankeji.release.xcconfig"; path = "Pods/Target Support Files/Pods-Liankeji/Pods-Liankeji.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,11 +157,11 @@
 		99E41F291DED0E0D00F32968 /* Liankeji */ = {
 			isa = PBXGroup;
 			children = (
+				99E41F7F1DED5C9100F32968 /* Common */,
+				99E41F6D1DED2A9B00F32968 /* Personal */,
+				99E41F5D1DED240B00F32968 /* firstPage */,
 				99E41F2D1DED0E0D00F32968 /* AppDelegate.h */,
 				99E41F2E1DED0E0D00F32968 /* AppDelegate.m */,
-				99E41F301DED0E0D00F32968 /* ViewController.h */,
-				99E41F311DED0E0D00F32968 /* ViewController.m */,
-				99E41F331DED0E0D00F32968 /* Main.storyboard */,
 				99E41F361DED0E0D00F32968 /* Assets.xcassets */,
 				99E41F381DED0E0D00F32968 /* LaunchScreen.storyboard */,
 				99E41F3B1DED0E0D00F32968 /* Info.plist */,
@@ -132,6 +173,7 @@
 		99E41F2A1DED0E0D00F32968 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				99E41F761DED4BF500F32968 /* resources */,
 				99E41F2B1DED0E0D00F32968 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -153,6 +195,111 @@
 				99E41F511DED0E0D00F32968 /* Info.plist */,
 			);
 			path = LiankejiUITests;
+			sourceTree = "<group>";
+		};
+		99E41F5D1DED240B00F32968 /* firstPage */ = {
+			isa = PBXGroup;
+			children = (
+				99E41F601DED249500F32968 /* C */,
+				99E41F5F1DED248C00F32968 /* V */,
+				99E41F5E1DED248000F32968 /* M */,
+			);
+			name = firstPage;
+			sourceTree = "<group>";
+		};
+		99E41F5E1DED248000F32968 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				992D73091DF114F000FFD2DD /* NewsTestModel.h */,
+				992D730A1DF114F000FFD2DD /* NewsTestModel.m */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		99E41F5F1DED248C00F32968 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		99E41F601DED249500F32968 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				99E41F611DED270300F32968 /* NavViewControllerForFirstPage.h */,
+				99E41F621DED270300F32968 /* NavViewControllerForFirstPage.m */,
+				99E41F641DED291A00F32968 /* NavViewControllerForPersonal.h */,
+				99E41F651DED291A00F32968 /* NavViewControllerForPersonal.m */,
+				99E41F671DED29FD00F32968 /* FirstPageViewController.h */,
+				99E41F681DED29FD00F32968 /* FirstPageViewController.m */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		99E41F6D1DED2A9B00F32968 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				99E41F701DED2AD600F32968 /* C */,
+				99E41F6F1DED2AB600F32968 /* V */,
+				99E41F6E1DED2AB000F32968 /* M */,
+			);
+			name = Personal;
+			sourceTree = "<group>";
+		};
+		99E41F6E1DED2AB000F32968 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		99E41F6F1DED2AB600F32968 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				99E41F711DED2B1E00F32968 /* PersonalTableViewCell.h */,
+				99E41F721DED2B1E00F32968 /* PersonalTableViewCell.m */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		99E41F701DED2AD600F32968 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				99E41F6A1DED2A8900F32968 /* PersonalTableViewController.h */,
+				99E41F6B1DED2A8900F32968 /* PersonalTableViewController.m */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		99E41F761DED4BF500F32968 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				99BDE0571DF3E69F0079EEF8 /* 1.jpg */,
+				99BDE0581DF3E69F0079EEF8 /* 2.jpg */,
+				99BDE0591DF3E69F0079EEF8 /* 3.jpg */,
+				99E41F7D1DED5AEF00F32968 /* tab2.png */,
+				99E41F791DED4D2000F32968 /* tab1.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		99E41F7F1DED5C9100F32968 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				99BDE0541DF3DE020079EEF8 /* FFScrollView.h */,
+				99BDE0551DF3DE020079EEF8 /* FFScrollView.m */,
+				99E41F831DED696100F32968 /* ShareNetWorkState.h */,
+				99E41F841DED696100F32968 /* ShareNetWorkState.m */,
+				99E41F861DED7EDD00F32968 /* ShareUrlString.h */,
+				99E41F871DED7EDD00F32968 /* ShareUrlString.m */,
+				99554A4C1DF012BF0028A59E /* ShareHomePath.h */,
+				99554A4D1DF012BF0028A59E /* ShareHomePath.m */,
+				999D99451DF04C950067CFBA /* ShareDataBase.h */,
+				999D99461DF04C950067CFBA /* ShareDataBase.m */,
+				992D730C1DF1557300FFD2DD /* GetCellHeight.h */,
+				992D730D1DF1557300FFD2DD /* GetCellHeight.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		A0CFF79DB7A0B244AB733FD2 /* Pods */ = {
@@ -273,9 +420,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99BDE05A1DF3E69F0079EEF8 /* 1.jpg in Resources */,
+				99BDE05C1DF3E69F0079EEF8 /* 3.jpg in Resources */,
+				99E41F7E1DED5AEF00F32968 /* tab2.png in Resources */,
 				99E41F3A1DED0E0D00F32968 /* LaunchScreen.storyboard in Resources */,
+				99BDE05B1DF3E69F0079EEF8 /* 2.jpg in Resources */,
 				99E41F371DED0E0D00F32968 /* Assets.xcassets in Resources */,
-				99E41F351DED0E0D00F32968 /* Main.storyboard in Resources */,
+				99E41F7A1DED4D2000F32968 /* tab1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,9 +499,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99E41F321DED0E0D00F32968 /* ViewController.m in Sources */,
+				992D730B1DF114F000FFD2DD /* NewsTestModel.m in Sources */,
 				99E41F2F1DED0E0D00F32968 /* AppDelegate.m in Sources */,
+				99E41F691DED29FD00F32968 /* FirstPageViewController.m in Sources */,
+				99E41F631DED270300F32968 /* NavViewControllerForFirstPage.m in Sources */,
+				992D730E1DF1557300FFD2DD /* GetCellHeight.m in Sources */,
+				99E41F851DED696100F32968 /* ShareNetWorkState.m in Sources */,
+				999D99471DF04C950067CFBA /* ShareDataBase.m in Sources */,
+				99E41F881DED7EDD00F32968 /* ShareUrlString.m in Sources */,
+				99E41F731DED2B1E00F32968 /* PersonalTableViewCell.m in Sources */,
+				99BDE0561DF3DE020079EEF8 /* FFScrollView.m in Sources */,
+				99E41F661DED291A00F32968 /* NavViewControllerForPersonal.m in Sources */,
+				99554A4E1DF012BF0028A59E /* ShareHomePath.m in Sources */,
 				99E41F2C1DED0E0D00F32968 /* main.m in Sources */,
+				99E41F6C1DED2A8900F32968 /* PersonalTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,14 +548,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		99E41F331DED0E0D00F32968 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				99E41F341DED0E0D00F32968 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		99E41F381DED0E0D00F32968 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -576,6 +730,7 @@
 				99E41F561DED0E0D00F32968 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		99E41F571DED0E0D00F32968 /* Build configuration list for PBXNativeTarget "LiankejiTests" */ = {
 			isa = XCConfigurationList;
@@ -584,6 +739,7 @@
 				99E41F591DED0E0D00F32968 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		99E41F5A1DED0E0D00F32968 /* Build configuration list for PBXNativeTarget "LiankejiUITests" */ = {
 			isa = XCConfigurationList;
@@ -592,6 +748,7 @@
 				99E41F5C1DED0E0D00F32968 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

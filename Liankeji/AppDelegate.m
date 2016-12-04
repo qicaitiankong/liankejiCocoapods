@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-
+#import "FirstPageViewController.h"
+#import "PersonalTableViewController.h"
+#import "NavViewControllerForFirstPage.h"
+#import "NavViewControllerForPersonal.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.window = [[UIWindow alloc]init];
+    FirstPageViewController *firstpageVC = [[FirstPageViewController alloc]init];
+    NavViewControllerForFirstPage *firstPageNav = [[NavViewControllerForFirstPage alloc]initWithRootViewController:firstpageVC];
+    PersonalTableViewController *personalVC = [[PersonalTableViewController alloc]init];
+    NavViewControllerForPersonal *personalNav = [[NavViewControllerForPersonal alloc]initWithRootViewController:personalVC];
+    UITabBarController *tabBarControl = [[UITabBarController alloc]init];
+    [tabBarControl setViewControllers:@[firstPageNav,personalNav]];
+    self.window.rootViewController = tabBarControl;
+    [self.window makeKeyAndVisible];
+    NSLog(@"%lf",[UIScreen mainScreen].bounds.size.width);
     // Override point for customization after application launch.
     return YES;
 }

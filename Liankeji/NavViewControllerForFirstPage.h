@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NavViewControllerForFirstPage.h
 //  Liankeji
 //
 //  Created by 李自豪 on 16/11/29.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface NavViewControllerForFirstPage : UINavigationController
 
 @end
-
