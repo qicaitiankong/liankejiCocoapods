@@ -39,8 +39,6 @@
     //[self testScrollView];
     //NSLog(@"%@",[[ShareHomePath GetShareHome] getDocumentsPath]);
    // NSInteger numState = [[ShareNetWorkState ShareNetState]getNetState:nil unknownStateHandler:nil WifeHandler:@selector(wifeHandler) wanHandler:nil target:self];
-   
-    
       // Do any additional setup after loading the view.
 }
 -(void)scrollViewDidClickedAtPage:(NSInteger)pageNumber{
