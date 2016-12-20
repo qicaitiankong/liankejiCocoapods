@@ -14,108 +14,197 @@
 #import "NewsTestModel.h"
 #import "GetCellHeight.h"
 #import "FFScrollView.h"
+#import <UIViewController+MMDrawerController.h>
+#import "sateliteMenuCenterButton.h"
+#import "firstPageButtonGroup.h"
+#import "CenterSmallView.h"
+#import "firstPageHeaderCell.h"
+#import "lzhdownMenuView.h"
+#import "newAnnouncementView.h"
+#import "scinenceHeaderView.h"
 
-#define WIDTH [UIScreen mainScreen].bounds.size.width
 
-@interface FirstPageViewController ()<FFScrollViewDelegate>
+//滚动视图高度
+#define SCROLLVIEW_HEIGHT 200
+//中间按钮组整体的高度 这个指定只是在创建时有用，显示时是按屏幕的宽度来计算高度，所以该指定只是预指定，并非实际高度
+#define BUTTON_GROUP_HEIGHT 250
+
+@interface FirstPageViewController ()<FFScrollViewDelegate,clickSubButtonDelegate,pullDownMenuDelegate,groupButtonDelegate,UITableViewDelegate,UITableViewDataSource>
+
 @property (strong,nonatomic)NSMutableArray *newsArr;
-@property (strong,nonatomic)UIScrollView *scoView;
+
+
+//表视图
+@property (strong,nonatomic)UITableView *tableView;
+//科技头条
+@property (strong,nonatomic)scinenceHeaderView*scinenceView;
+//表头
+@property (strong,nonatomic)UIView *tableHeaderView;
+//中间按钮组
+@property (strong,nonatomic)firstPageButtonGroup *groupButton;
+//滚动视图
+@property (strong,nonatomic)UIView *scoView;
+//公告VIEW
+@property (strong,nonatomic)newAnnouncementView* anounceView;
+
+
 @end
 
 @implementation FirstPageViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    self.newsArr = [[NSMutableArray alloc]initWithCapacity:2];
-    self.view.backgroundColor = [UIColor redColor];
-    NSArray *imageSources = @[@"1.jpg",@"2.jpg",@"3.jpg"];
-    FFScrollView *scrollView = [[FFScrollView alloc]initPageViewWithFrame:CGRectMake(0, 64, WIDTH, 200) views:imageSources];
-    scrollView.backgroundColor = [UIColor grayColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.view addSubview:scrollView];
+    self.newsArr = [[NSMutableArray alloc]initWithCapacity:2];
+    self.view.backgroundColor = [UIColor blackColor];
+    [self setNavigationButton];
     
-    scrollView.pageViewDelegate = self;
-    //[self testScrollView];
-    //NSLog(@"%@",[[ShareHomePath GetShareHome] getDocumentsPath]);
-   // NSInteger numState = [[ShareNetWorkState ShareNetState]getNetState:nil unknownStateHandler:nil WifeHandler:@selector(wifeHandler) wanHandler:nil target:self];
-      // Do any additional setup after loading the view.
+    [self addSateliteMenu];
+    [self initTableView];
 }
+//设置导航栏的左右按钮
+- (void)setNavigationButton{
+    //导航栏左按钮点击事件
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"nav1"] style:UIBarButtonItemStyleDone target:self action:@selector(leftNavBarHandler:)];
+    
+    UIImage *searchImage = [UIImage imageNamed:@"nav2"];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:searchImage style:UIBarButtonItemStyleDone target:self action:@selector(rightSearchHandler:)];
+}
+//点击左侧navgationBAR
+- (void)leftNavBarHandler:(UIBarButtonItem*)_u{
+    //下拉菜单
+    lzhdownMenuView *menuView = [[lzhdownMenuView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) menuSize:CGSizeMake(SCREEN_WIDTH / 4, SCREEN_HEIGHT - 64 - 49) titleArray:@[@"菜单1",@"菜单2",@"菜单3",@"菜单4"] delegate:self];
+   UIWindow *window = [UIApplication sharedApplication].windows[0];
+    [window addSubview:menuView];
+}
+//侧拉菜单点击代理方法
+-(void)downMenuSelect:(NSInteger)_index{
+    NSLog(@"你点击了下拉菜单中的%li",_index);
+}
+//导航栏右侧搜索按钮
+- (void)rightSearchHandler:(UIBarButtonItem*)_u{
+    
+}
+//滚动视图
+- (UIView*)addScrollView{
+    NSArray *imageSources = @[@"1",@"2"];
+    FFScrollView *scrollView = [[FFScrollView alloc]initPageViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,SCROLLVIEW_HEIGHT) views:imageSources];
+    scrollView.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    scrollView.pageViewDelegate = self;
+    return scrollView;
+}
+//轮播点击
 -(void)scrollViewDidClickedAtPage:(NSInteger)pageNumber{
     NSLog(@"点击了%li",pageNumber);
 }
-//测试滚动视图
-- (void)testScrollView{
-    self.scoView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, WIDTH, 150)];
-    self.scoView.contentSize = CGSizeMake(WIDTH * 3, 0);
-    //self.scoView.contentOffset = CGPointMake(WIDTH, 0);
-    self.scoView.showsHorizontalScrollIndicator = NO;
-    self.scoView.bounces = YES;
-    self.scoView.pagingEnabled = NO;
-    //self.scoView.delegate = self;
-    [self.view addSubview:self.scoView];
-    for(NSInteger i = 0 ; i < 3; i ++){
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i *WIDTH, 0, WIDTH, 150)];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        NSString *imageName = [[NSString alloc]initWithFormat:@"%li.jpg",i +1];
-        UIImage *image = [UIImage imageNamed:imageName];
-        [imageView setImage:image];
-        [self.scoView addSubview:imageView];
+//创建最新公告
+- (newAnnouncementView*)createAnounmentView{
+    newAnnouncementView *anounmentView = [[newAnnouncementView alloc]initWithFrame:CGRectMake(0, self.scoView.bounds.size.height, SCREEN_WIDTH, 60)];
+    return anounmentView;
+}
+
+//中间button按钮组
+- (firstPageButtonGroup*)testButtonGroup{
+    NSMutableArray *buttonImageArr = [[NSMutableArray alloc]init];
+    NSMutableArray *lableTitleArr = [[NSMutableArray alloc]initWithObjects:@"企业",@"专家",@"技术人才",@"高校",@"第三方",@"更多",nil];
+    for(NSInteger i = 0 ; i < 6; i ++){
+        UIImage *image = [UIImage imageNamed:@"a1"];
+        [buttonImageArr addObject:image];
     }
+    firstPageButtonGroup *buttonGroup = [[firstPageButtonGroup alloc]initWithFrame:CGRectMake(0, self.scoView.bounds.size.height + self.anounceView.bounds.size.height, SCREEN_WIDTH,BUTTON_GROUP_HEIGHT) titleArray:lableTitleArr imageArr:buttonImageArr groupDelegate:self];
+    return buttonGroup;
 }
-- (void)getLableHeight{
-    NSString *contentStr = @"点击本页面左上方“立即出价”链接，进入域名出价页面，登陆易名中国网站后再打开域名页面点“立即出价”，出价成功后域名立刻进入买方账号并自动过户完成交易(只有一次出价机会,先出价者先得)；如果左上方未显示价格和出价链接可进入“千百度一号店”搜索到域名后再出价。注：需要先注册成为易名中国(www.ename.cn)会员[注册帮助]并充值相应金额；企业购买如要发票须提前联系并另加6%税点[充值流程]。如果您对域名交易流程";
-    UILabel *lable = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, self.view.bounds.size.height)];
-    [self.view addSubview:lable];
-    lable.backgroundColor = [UIColor grayColor];
-    lable.numberOfLines = 0;
-    lable.textAlignment = NSTextAlignmentLeft;
-    lable.font = [UIFont systemFontOfSize:17];
-    
-    
-    CGFloat lableHeight = [[GetCellHeight ShareCellHeight]cellHeight:lable content:contentStr Cellwidth:300];
-    lable.frame = CGRectMake(0, 64, 300, lableHeight);
-    
-    NSLog(@"检测高度：%lf",lable.frame.size.height);
-    lable.text = contentStr;
-    
+//中间按钮点击事件
+-(void)groupButtonClickHandler:(NSInteger)buttonIndex{
+    NSLog(@"buttonGroup:%li",buttonIndex);
 }
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    NSLog(@"将要拖动");
+
+//科技头条
+- (scinenceHeaderView*)createScientHeaderView{
+    scinenceHeaderView *scienceView = [[scinenceHeaderView alloc]initWithFrame:CGRectMake(0, self.scoView.bounds.size.height + self.anounceView.bounds.size.height + self.groupButton.bounds.size.height, SCREEN_WIDTH, 60)];
+    
+    return scienceView;
 }
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-   // NSLog(@"发生滚动");
+
+
+//添加卫星菜单
+- (void)addSateliteMenu{
+    NSArray *windowArr = [UIApplication sharedApplication].windows;
+    UIWindow *window = windowArr[0];
+    UIView *sateliteView =  [[sateliteMenuCenterButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 60, SCREEN_HEIGHT  - 64 - 49, 60, 60) _delegate:self];
+    [window addSubview:sateliteView];
 }
--(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    NSLog(@"将要结束拖动");
-    static short index = 0;
-    if(index > 2){
-        index = 0;
+//卫星菜单点击事件
+-(void)dealClickHandler:(NSInteger)buttonIndex{
+    NSLog(@"点击了卫星菜单中的：%li",buttonIndex);
+}
+
+////添加表头
+- (UIView*)crateTableHeaderView{
+   self.scoView = [self addScrollView];
+   self.anounceView = [self createAnounmentView];
+   self.groupButton = [self testButtonGroup];
+   self.scinenceView = [self createScientHeaderView];
+    
+   self.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, -(self.scoView.bounds.size.height + self.groupButton.bounds.size.height + self.anounceView.bounds.size.height + self.scinenceView.bounds.size.height), SCREEN_WIDTH, self.scoView.bounds.size.height + self.anounceView.bounds.size.height + self.groupButton.bounds.size.height + self.scinenceView.bounds.size.height)];
+    
+    [self.tableHeaderView addSubview:self.scoView];
+    [self.tableHeaderView addSubview:self.anounceView];
+    [self.tableHeaderView addSubview:self.groupButton];
+    [self.tableHeaderView addSubview:self.scinenceView];
+    NSLog(@"科技头条高度：%lf",self.scinenceView.bounds.size.height);
+    return self.tableHeaderView;
+}
+
+//初始化tableView
+- (void)initTableView{
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,  64  , SCREEN_WIDTH, 1000) style:UITableViewStyleGrouped];
+    [self.view addSubview:_tableView];
+    _tableView.backgroundColor = [UIColor whiteColor];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     }
-    CGPoint point = CGPointMake(WIDTH * index, 0);
-    targetContentOffset = &point;
-    index ++;
+
+//没有数据，先写死了
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
 }
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    NSLog(@"已经结束拖动");
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 4;
 }
--(void)wifeHandler{
-    ShareUrlString *shareUrl = [ShareUrlString ShareUrlString];
-    [[ShareNetWorkState ShareNetState] getDataWithUrl:shareUrl.testUrlStr parameters:nil sucess:^(id reponseObject) {
-       // NSLog(@"%@",reponseObject);
-    } failuer:^(NSError *err) {
-        NSLog(@"%@",err);
-    }];
-//    [[ShareNetWorkState ShareNetState]postDataWithUrl:shareUrl.postUrlStr parameters:@{@"content":@"国内"} sucess:^(id reponseObject) {
-//        NSLog(@"%@",reponseObject);
-//    } failuer:^(NSError *err) {
-//        NSLog(@"ERROR:%@",err);
-//    }];
-    NSLog(@"wife quzuo");
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    firstPageHeaderCell *cell = nil;
+    cell = [tableView dequeueReusableCellWithIdentifier:@"cell1"];
+    if(nil == cell){
+        cell = [[firstPageHeaderCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell1" targetView:_tableView];
+    }
+    cell.firstTitleLable.text = @"你好，我是链科技期待你的加入";
+    cell.secondTitleLable.text = @"目的是中国做大的技术对接";
+    [cell.ownImageView setImage:[UIImage imageNamed:@"1"]];
+    return cell;
 }
-- (void)noNet{
-    NSLog(@"no net quzuo");
+
+//设置表头
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSLog(@"返回表头");
+       return self.tableHeaderView;
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    NSLog(@"表头高度%lf",self.tableHeaderView.bounds.size.height);
+    [self crateTableHeaderView];
+    return self.tableHeaderView.bounds.size.height;
+}
+//cell高
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 200;
+}
+
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    return @"科技头条";
+//}
 //数据库操作
 - (void)operateDataBase{
     ShareDataBase *dataBaseClass = [ShareDataBase shareDataBase];
@@ -132,64 +221,13 @@
     }
     if(tableCreateSuc){
         NSLog(@"成功");
-        // 插入测试
-        //        UIImage *image = [UIImage imageNamed:@"tab1"];
-        //        NSData *imageData =   UIImagePNGRepresentation(image);
-        //        NSArray *insertDataArray = @[@"新闻7",@3,imageData];
-        //        //NSString *insertStr = @"insert into News1(title,click,image) values(?,?,?)";
-        //        NSString *insertStr = @"insert into News2(title2,click2,image2) values(?,?,?)";
-        //        NSError *err = nil;
-        //        dataInsertTableSuc = [dataBaseClass insertDataIntoTable:insertStr insertDataArray:insertDataArray error:err];
-        //        if(dataInsertTableSuc){
-        //            NSLog(@"插入成功");
-        //        }
-        //更新测试
-        //        NSString *updateStr = @"update News1 set title =?,click=? where flag >= 1";
-        //        NSArray *updateArr = @[@"新闻5",@3];
-        //        NSError *updateErr = nil;
-        //        BOOL updateSuc = [dataBaseClass updateDataBase:updateStr updateContentArray:updateArr error:updateErr];
-        //        if(updateSuc){
-        //            NSLog(@"success");
-        //        }else{
-        //            NSLog(@"updateError:%@",updateErr);
-        //        }
-        //查询测试
-        //    NSString *searchSql = @"select * from News1 where flag >= ?";
-        //    NSArray *arr = [[NSArray alloc]initWithObjects:@1, nil];
-        //    NSError *searchError = nil;
-        //    FMResultSet *result = [dataBaseClass searchTable:searchSql searchValues:arr error:searchError];
-        //    NewsTestModel *newsModel = [[NewsTestModel alloc]init];
-        //    while ([result next]) {
-        //        newsModel.title = [result objectForColumnName:@"title"];
-        //        newsModel.click = [[result objectForColumnName:@"click"] integerValue];
-        //        newsModel.imageData = [result objectForColumnName:@"image"];
-        //        [self.newsArr addObject:newsModel];
-        //删除测试
-        //        NSError *deleteError = nil;
-        //        NSString *deleteStr = @"delete from News2 where flag = ?";
-        //        NSArray *deleteArr = @[@3];
-        //        BOOL deleteSuc = [dataBaseClass deleteRecordFromTable:deleteStr valuesArray:deleteArr deleteError:deleteError];
-        //        if(deleteSuc){
-        //            NSLog(@"delete success");
-        //        }else{
-        //            NSLog(@"deleteEror:%@",deleteError);
-        //        }
+        
     }
-
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

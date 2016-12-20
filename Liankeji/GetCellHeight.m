@@ -7,13 +7,10 @@
 //
 
 #import "GetCellHeight.h"
-static GetCellHeight *getCellHeight = nil;
+ GetCellHeight *getCellHeight = nil;
 @implementation GetCellHeight
 + (GetCellHeight*)ShareCellHeight{
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        getCellHeight = [[GetCellHeight alloc]init];
-    });
+    getCellHeight = [[GetCellHeight alloc]init];
     return getCellHeight;
 }
 - (CGFloat)cellHeight:(UILabel*)targetLabel content:(NSString *)_contentString Cellwidth:(CGFloat)_width{

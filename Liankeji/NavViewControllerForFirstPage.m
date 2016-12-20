@@ -16,12 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tabBarItem.image = [UIImage imageNamed:@"tab2"];
-    self.tabBarItem.title = @"首页";
+
     
     // Do any additional setup after loading the view.
 }
 
+-(UIViewController *)childViewControllerForStatusBarStyle{
+    return self.topViewController;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

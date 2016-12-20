@@ -7,14 +7,10 @@
 //
 
 #import "ShareUrlString.h"
-static ShareUrlString *shareUrlString = nil;
+ShareUrlString *shareUrlString = nil;
 @implementation ShareUrlString
 +(ShareUrlString*)ShareUrlString{
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        NSLog(@"执行单例");
         shareUrlString = [[ShareUrlString alloc]init];
-    });
     return shareUrlString;
 }
 - (instancetype)init

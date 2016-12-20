@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tabBarItem.image = [UIImage imageNamed:@"tab2"];
+    self.tabBarItem.image = [UIImage imageNamed:@"4"];
     self.tabBarItem.title = @"我";
     // Do any additional setup after loading the view.
 }

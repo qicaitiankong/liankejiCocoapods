@@ -9,18 +9,16 @@
 #import "ShareNetWorkState.h"
 
 
-
+//并不做成单例
 static ShareNetWorkState *ShareGetNetState = nil;
 static AFHTTPSessionManager *manager = nil;
 
 @implementation ShareNetWorkState
 +(ShareNetWorkState*)ShareNetState{
-    static dispatch_once_t onceToke;
-    dispatch_once(&onceToke, ^{
+    
         ShareGetNetState = [[ShareNetWorkState alloc]init];
         manager = [AFHTTPSessionManager manager];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"application/json", @"text/json", @"text/javascript",@"text/css", @"text/plain", @"application/x-javascript", @"application/javascript",@"application/xhtml+xml",@"application/xml", nil];
-    });
     return ShareGetNetState;
 }
 

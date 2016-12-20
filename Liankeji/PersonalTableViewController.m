@@ -12,26 +12,62 @@
 #import "ShareUrlString.h"
 #import "NewsTestModel.h"
 
+#import <UIImageView+WebCache.h>
+#import "GetCellHeight.h"
+
 @interface PersonalTableViewController ()
-@property (strong,nonatomic)NSMutableArray *newsArr;
+@property (strong,nonatomic)NSMutableArray *newsArr,*urlArr;
 @end
 
 @implementation PersonalTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"个人中心");
+
+    GetCellHeight *h1 =  [GetCellHeight ShareCellHeight];
+    GetCellHeight *h2 =  [GetCellHeight ShareCellHeight];
+    NSLog(@"h1=%p,h2=%p",h1,h2);
     self.view.backgroundColor = [UIColor whiteColor];
+   
+    NSString *url1 = @"http://img.mp.itc.cn/upload/20161204/a5c2b6b31f0d49ff8833d58169266002_th.jpg";
+    NSString *url2 = @"https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=671277887,1474810111&fm=80&w=179&h=119&img.JPEG";
+    self.urlArr = [[NSMutableArray alloc]initWithObjects:url1,url2, nil];
     self.newsArr = [[NSMutableArray alloc]init];
-    //self.clearsSelectionOnViewWillAppear = NO;
-    [[ShareNetWorkState ShareNetState]getDataWithUrl:[ShareUrlString ShareUrlString].testUrlStr parameters:nil sucess:^(id reponseObject) {
-        [self jsonData:reponseObject];
-    } failuer:^(NSError *err) {
-         NSLog(@"下载错误：%@",err);
-    }];
+    [self SDWebImageTest];
+     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+//SDWebImage异步下载图片
+- (void)SDWebImageTest{
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    for(NSInteger i = 0 ;i < self.urlArr.count; i ++){
+        NSURL *url = [NSURL URLWithString:self.urlArr[i]];
     
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+         [manager downloadImageWithURL:url options:SDWebImageDelayPlaceholder progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if(nil == error && image){
+                [self.newsArr addObject:image];
+                NSIndexPath *path = [NSIndexPath indexPathForRow:i inSection:1];
+                PersonalTableViewCell *cell = [self.tableView cellForRowAtIndexPath:path];
+                cell.newsImageView.image = image;
+            }
+            if(self.newsArr.count == 2){
+                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            }
+        }];
+    }
 }
 
+//内存警告
+- (void)dealWithMemoryWarning{
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    //取消正在下载的工作
+    [manager cancelAll];
+    //清除内存缓存
+    [manager.imageCache clearMemory];
+    //清除硬盘缓存
+    [manager.imageCache cleanDisk];
+    
+}
 - (void)jsonData:(id)_object{
     NSArray *arr = _object;
     for(NSDictionary *dict in arr){
@@ -45,6 +81,7 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    [self dealWithMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
@@ -67,11 +104,16 @@
         cell = [[PersonalTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"image1" _tableviewWidth:self.tableView];
     }
     if(nil != _newsArr){
-        NewsTestModel *model = self.newsArr[indexPath.row];
-        NSLog(@"%@",model.imageData);
-        [cell.newsImageView setImage:[UIImage imageWithData:model.imageData]];
-        [cell.newsTitleLable setText:model.title];
+        //NewsTestModel *model = self.newsArr[indexPath.row];
+        //NSLog(@"%@",model.imageData);
+        cell.newsImageView.image = _newsArr[indexPath.row];
+        //[cell.newsImageView setImage:[UIImage imageWithData:model.imageData]];
+        
+       // [cell.newsTitleLable setText:model.title];
+    }else{
+        cell.newsImageView.image = [UIImage imageNamed:@"1.jpg"]; 
     }
+    //[cell.newsImageView setImageWithURL:[NSURL URLWithString:self.newsArr[indexPath.row]] placeholderImage:[UIImage imageNamed:@"1.jpg"]];
     return cell;
 }
 
