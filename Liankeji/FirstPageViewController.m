@@ -22,12 +22,16 @@
 #import "lzhdownMenuView.h"
 #import "newAnnouncementView.h"
 #import "scinenceHeaderView.h"
-
+#import "UINavigationBar+NavigationBarBackground.h"
 
 //滚动视图高度
 #define SCROLLVIEW_HEIGHT 200
 //中间按钮组整体的高度 这个指定只是在创建时有用，显示时是按屏幕的宽度来计算高度，所以该指定只是预指定，并非实际高度
 #define BUTTON_GROUP_HEIGHT 250
+//首页滚动多高时导航栏发生渐变
+
+#define NAVBAR_CHANGE_POINT 64
+
 
 @interface FirstPageViewController ()<FFScrollViewDelegate,clickSubButtonDelegate,pullDownMenuDelegate,groupButtonDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -47,13 +51,15 @@
 //公告VIEW
 @property (strong,nonatomic)newAnnouncementView* anounceView;
 
-
 @end
 
 @implementation FirstPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setNavigationControlerrTransparent];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.newsArr = [[NSMutableArray alloc]initWithCapacity:2];
     self.view.backgroundColor = [UIColor blackColor];
@@ -62,6 +68,28 @@
     [self addSateliteMenu];
     [self initTableView];
 }
+//设置导航栏透明
+- (void)setNavigationControlerrTransparent{
+    self.navigationItem.title = @"链科技";
+    
+    [self.navigationController.navigationBar hy_setBackgroundViewWithColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar hy_setBackgroundViewWithAlpha:0];
+}
+//处理上滑导航栏的渐变
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY > 64) {
+        CGFloat alpha = MIN(1, 1 - ((NAVBAR_CHANGE_POINT + 64 - offsetY) / 64));
+        if(alpha > 0.8){
+            alpha = 0.8;
+        }
+        [self.navigationController.navigationBar hy_setBackgroundViewWithAlpha:alpha];
+    } else {
+        [self.navigationController.navigationBar hy_setBackgroundViewWithAlpha:0];
+    }
+
+}
+
 //设置导航栏的左右按钮
 - (void)setNavigationButton{
     //导航栏左按钮点击事件
@@ -159,7 +187,7 @@
 
 //初始化tableView
 - (void)initTableView{
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,  64  , SCREEN_WIDTH, 1000) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,  0  , SCREEN_WIDTH, 1000) style:UITableViewStyleGrouped];
     [self.view addSubview:_tableView];
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.delegate = self;

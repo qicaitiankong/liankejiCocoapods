@@ -159,29 +159,33 @@
     isOpen = YES;
     int i  = 0;
     //CAAnimationGroup *group = [CAAnimationGroup animation];
-   // NSMutableArray *animationArr = [[NSMutableArray alloc]init];
+    //NSMutableArray *animationArr = [[NSMutableArray alloc]init];
     for(NSMutableArray *arr in _positionArr){
         double x = [arr[0] doubleValue];
         double y = [arr[1] doubleValue];
         UIButton *button = subButtonArr[i];
         [UIView animateWithDuration:0.5 animations:^{
             button.transform = CGAffineTransformMakeTranslation(x, y);
-        } completion:^(BOOL finished) {
-        }];
-        //启用动画组
-        
-//        CABasicAnimation *positionAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
-//        //[positionAnimation setFromValue:[NSValue valueWithCGPoint:CGPointMake(button.frame.origin.x, button.frame.origin.y)]];
-//        [positionAnimation setToValue:[NSValue valueWithCGPoint:CGPointMake(x, y)]];
-//        [positionAnimation  setDuration:1];
-//        [positionAnimation setBeginTime:0.1 * i];
-//        [button.layer addAnimation:positionAnimation forKey:nil];
-//        [animationArr addObject:positionAnimation];
+       } completion:^(BOOL finished) {
+       }];
         i ++;
     }
-    //[group setAnimations:animationArr];
-    //[group setDuration:1];
-    //[self.layer addAnimation:group forKey:nil];
+        //启用动画组
+//        
+//        CABasicAnimation *positionAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+//        [positionAnimation setFromValue:[NSValue valueWithCGPoint:CGPointMake(button.frame.origin.x, button.frame.origin.y)]];
+//        [positionAnimation setToValue:[NSValue valueWithCGPoint:CGPointMake(button.frame.origin.x + x,button.frame.origin.y + y)]];
+//        
+//        [positionAnimation  setDuration:2];
+//        [positionAnimation setBeginTime:0.1 * i];
+//        [button.layer addAnimation:positionAnimation forKey:nil];
+//       
+//        [animationArr addObject:positionAnimation];
+
+//        }
+        //[group setAnimations:animationArr];
+        //[group setDuration:2];
+        //[self.layer addAnimation:group forKey:nil];
 }
 
 

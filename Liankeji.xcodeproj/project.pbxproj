@@ -11,6 +11,9 @@
 		992180091E0788AD00070D46 /* newAnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 992180081E0788AD00070D46 /* newAnnouncementView.m */; };
 		9921800C1E07AF9700070D46 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9921800A1E07AF9700070D46 /* 1.png */; };
 		9921800D1E07AF9700070D46 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9921800B1E07AF9700070D46 /* 2.png */; };
+		992C69361E0A0DE00052D21B /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 992C69351E0A0DE00052D21B /* user.png */; };
+		992C69381E0A1C270052D21B /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 992C69371E0A1C270052D21B /* test.png */; };
+		992C69821E0A69890052D21B /* UINavigationBar+NavigationBarBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 992C69801E0A69890052D21B /* UINavigationBar+NavigationBarBackground.m */; };
 		992D730B1DF114F000FFD2DD /* NewsTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 992D730A1DF114F000FFD2DD /* NewsTestModel.m */; };
 		992D730E1DF1557300FFD2DD /* GetCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 992D730D1DF1557300FFD2DD /* GetCellHeight.m */; };
 		99552E171E013FFF0091EAE9 /* leftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99552E161E013FFF0091EAE9 /* leftDrawerViewController.m */; };
@@ -84,6 +87,10 @@
 		9921800A1E07AF9700070D46 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		9921800B1E07AF9700070D46 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		9923B5921E05702A00420633 /* appCommonAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appCommonAttributes.h; sourceTree = "<group>"; };
+		992C69351E0A0DE00052D21B /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		992C69371E0A1C270052D21B /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		992C69801E0A69890052D21B /* UINavigationBar+NavigationBarBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+NavigationBarBackground.m"; sourceTree = "<group>"; };
+		992C69811E0A69890052D21B /* UINavigationBar+NavigationBarBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+NavigationBarBackground.h"; sourceTree = "<group>"; };
 		992D73091DF114F000FFD2DD /* NewsTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTestModel.h; sourceTree = "<group>"; };
 		992D730A1DF114F000FFD2DD /* NewsTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTestModel.m; sourceTree = "<group>"; };
 		992D730C1DF1557300FFD2DD /* GetCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCellHeight.h; sourceTree = "<group>"; };
@@ -224,6 +231,29 @@
 			name = "最新公告";
 			sourceTree = "<group>";
 		};
+		992C69781E0A65650052D21B /* 导航栏 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "导航栏";
+			sourceTree = "<group>";
+		};
+		992C697F1E0A69410052D21B /* 导航栏 */ = {
+			isa = PBXGroup;
+			children = (
+				992C69801E0A69890052D21B /* UINavigationBar+NavigationBarBackground.m */,
+				992C69811E0A69890052D21B /* UINavigationBar+NavigationBarBackground.h */,
+			);
+			name = "导航栏";
+			sourceTree = "<group>";
+		};
+		992C69831E0A74130052D21B /* 自定义tableBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "自定义tableBar";
+			sourceTree = "<group>";
+		};
 		99552E0E1E013E660091EAE9 /* DrawFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +275,7 @@
 		997546B11E08024A003AB8CF /* 侧拉菜单 */ = {
 			isa = PBXGroup;
 			children = (
+				992C69371E0A1C270052D21B /* test.png */,
 				99AA38DC1E08C1F6000A57BC /* sidemenu_121.png */,
 				99AA38DD1E08C1F6000A57BC /* sidemenu_241.png */,
 				99AA38DE1E08C1F6000A57BC /* sidemenu_362.png */,
@@ -282,6 +313,7 @@
 		99AA38ED1E09177E000A57BC /* 侧拉菜单 */ = {
 			isa = PBXGroup;
 			children = (
+				992C69351E0A0DE00052D21B /* user.png */,
 				99AA38E21E08C296000A57BC /* lzhdownMenuView.m */,
 				9999024B1E04FD1E00A6BF0F /* lzhdownMenuView.h */,
 				99AA38EE1E092C8C000A57BC /* sideMenuButton.h */,
@@ -372,6 +404,8 @@
 		99E41F5D1DED240B00F32968 /* firstPage */ = {
 			isa = PBXGroup;
 			children = (
+				992C69831E0A74130052D21B /* 自定义tableBar */,
+				992C697F1E0A69410052D21B /* 导航栏 */,
 				99AA38ED1E09177E000A57BC /* 侧拉菜单 */,
 				99AA38E51E08C3FC000A57BC /* 科技头条 */,
 				992180041E077EFF00070D46 /* 首页按钮组 */,
@@ -489,6 +523,7 @@
 		99EF89761E038A28002836B3 /* firstPage */ = {
 			isa = PBXGroup;
 			children = (
+				992C69781E0A65650052D21B /* 导航栏 */,
 				99AA38E41E08C3C7000A57BC /* 滚动视图 */,
 				997546B11E08024A003AB8CF /* 侧拉菜单 */,
 				99EF898B1E03D232002836B3 /* nav2.png */,
@@ -622,6 +657,8 @@
 				9921800D1E07AF9700070D46 /* 2.png in Resources */,
 				99E41F7E1DED5AEF00F32968 /* tab2.png in Resources */,
 				99EF89881E03D0B8002836B3 /* nav3.png in Resources */,
+				992C69361E0A0DE00052D21B /* user.png in Resources */,
+				992C69381E0A1C270052D21B /* test.png in Resources */,
 				99EF897B1E038AD6002836B3 /* a1.png in Resources */,
 				99AA38E01E08C1F6000A57BC /* sidemenu_241.png in Resources */,
 				997546BC1E081887003AB8CF /* 1_50.png in Resources */,
@@ -735,6 +772,7 @@
 				99E41F2C1DED0E0D00F32968 /* main.m in Sources */,
 				9961CF951E02249F0021D123 /* CommunicateFirstViewController.m in Sources */,
 				99E41F6C1DED2A8900F32968 /* PersonalTableViewController.m in Sources */,
+				992C69821E0A69890052D21B /* UINavigationBar+NavigationBarBackground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
