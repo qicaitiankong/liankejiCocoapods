@@ -16,6 +16,19 @@
 		992C69821E0A69890052D21B /* UINavigationBar+NavigationBarBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 992C69801E0A69890052D21B /* UINavigationBar+NavigationBarBackground.m */; };
 		992D730B1DF114F000FFD2DD /* NewsTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 992D730A1DF114F000FFD2DD /* NewsTestModel.m */; };
 		992D730E1DF1557300FFD2DD /* GetCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 992D730D1DF1557300FFD2DD /* GetCellHeight.m */; };
+		9953E2DB1E0D22C300F55604 /* announceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9953E2DA1E0D22C300F55604 /* announceViewController.m */; };
+		9953E2E11E0D22FF00F55604 /* informationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9953E2E01E0D22FF00F55604 /* informationViewController.m */; };
+		9953E2EC1E0D238700F55604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9953E2E21E0D238700F55604 /* UIView+Extension.m */; };
+		9953E2ED1E0D238700F55604 /* LZHTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9953E2E41E0D238700F55604 /* LZHTabButton.m */; };
+		9953E2EE1E0D238700F55604 /* LZHTabBigButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9953E2E61E0D238700F55604 /* LZHTabBigButton.m */; };
+		9953E2EF1E0D238700F55604 /* LZHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9953E2E81E0D238700F55604 /* LZHTabBarController.m */; };
+		9953E2F01E0D238700F55604 /* LZHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9953E2EA1E0D238700F55604 /* LZHTabBar.m */; };
+		9953E2F81E0D255500F55604 /* tabBar05.png in Resources */ = {isa = PBXBuildFile; fileRef = 9953E2F21E0D255500F55604 /* tabBar05.png */; };
+		9953E2F91E0D255500F55604 /* tabBar04.png in Resources */ = {isa = PBXBuildFile; fileRef = 9953E2F31E0D255500F55604 /* tabBar04.png */; };
+		9953E2FA1E0D255500F55604 /* tabBar03.png in Resources */ = {isa = PBXBuildFile; fileRef = 9953E2F41E0D255500F55604 /* tabBar03.png */; };
+		9953E2FB1E0D255500F55604 /* tabBar02.png in Resources */ = {isa = PBXBuildFile; fileRef = 9953E2F51E0D255500F55604 /* tabBar02.png */; };
+		9953E2FC1E0D255500F55604 /* tabBar01.png in Resources */ = {isa = PBXBuildFile; fileRef = 9953E2F61E0D255500F55604 /* tabBar01.png */; };
+		9953E2FD1E0D255500F55604 /* tab_group_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9953E2F71E0D255500F55604 /* tab_group_back@3x.png */; };
 		99552E171E013FFF0091EAE9 /* leftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99552E161E013FFF0091EAE9 /* leftDrawerViewController.m */; };
 		99554A4E1DF012BF0028A59E /* ShareHomePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 99554A4D1DF012BF0028A59E /* ShareHomePath.m */; };
 		9957A24A1E0182A60022B92B /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9957A2491E0182A60022B92B /* 4.png */; };
@@ -95,6 +108,26 @@
 		992D730A1DF114F000FFD2DD /* NewsTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTestModel.m; sourceTree = "<group>"; };
 		992D730C1DF1557300FFD2DD /* GetCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCellHeight.h; sourceTree = "<group>"; };
 		992D730D1DF1557300FFD2DD /* GetCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCellHeight.m; sourceTree = "<group>"; };
+		9953E2D91E0D22C300F55604 /* announceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = announceViewController.h; sourceTree = "<group>"; };
+		9953E2DA1E0D22C300F55604 /* announceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = announceViewController.m; sourceTree = "<group>"; };
+		9953E2DF1E0D22FF00F55604 /* informationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = informationViewController.h; sourceTree = "<group>"; };
+		9953E2E01E0D22FF00F55604 /* informationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = informationViewController.m; sourceTree = "<group>"; };
+		9953E2E21E0D238700F55604 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		9953E2E31E0D238700F55604 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		9953E2E41E0D238700F55604 /* LZHTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHTabButton.m; sourceTree = "<group>"; };
+		9953E2E51E0D238700F55604 /* LZHTabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHTabButton.h; sourceTree = "<group>"; };
+		9953E2E61E0D238700F55604 /* LZHTabBigButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHTabBigButton.m; sourceTree = "<group>"; };
+		9953E2E71E0D238700F55604 /* LZHTabBigButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHTabBigButton.h; sourceTree = "<group>"; };
+		9953E2E81E0D238700F55604 /* LZHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHTabBarController.m; sourceTree = "<group>"; };
+		9953E2E91E0D238700F55604 /* LZHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHTabBarController.h; sourceTree = "<group>"; };
+		9953E2EA1E0D238700F55604 /* LZHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHTabBar.m; sourceTree = "<group>"; };
+		9953E2EB1E0D238700F55604 /* LZHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHTabBar.h; sourceTree = "<group>"; };
+		9953E2F21E0D255500F55604 /* tabBar05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar05.png; sourceTree = "<group>"; };
+		9953E2F31E0D255500F55604 /* tabBar04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar04.png; sourceTree = "<group>"; };
+		9953E2F41E0D255500F55604 /* tabBar03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar03.png; sourceTree = "<group>"; };
+		9953E2F51E0D255500F55604 /* tabBar02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar02.png; sourceTree = "<group>"; };
+		9953E2F61E0D255500F55604 /* tabBar01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar01.png; sourceTree = "<group>"; };
+		9953E2F71E0D255500F55604 /* tab_group_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_group_back@3x.png"; sourceTree = "<group>"; };
 		99552E151E013FFF0091EAE9 /* leftDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftDrawerViewController.h; sourceTree = "<group>"; };
 		99552E161E013FFF0091EAE9 /* leftDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftDrawerViewController.m; sourceTree = "<group>"; };
 		99554A4C1DF012BF0028A59E /* ShareHomePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareHomePath.h; sourceTree = "<group>"; };
@@ -254,6 +287,54 @@
 			name = "自定义tableBar";
 			sourceTree = "<group>";
 		};
+		9953E2D51E0D21BF00F55604 /* 自定义UITabBar */ = {
+			isa = PBXGroup;
+			children = (
+				9953E2E21E0D238700F55604 /* UIView+Extension.m */,
+				9953E2E31E0D238700F55604 /* UIView+Extension.h */,
+				9953E2E41E0D238700F55604 /* LZHTabButton.m */,
+				9953E2E51E0D238700F55604 /* LZHTabButton.h */,
+				9953E2E61E0D238700F55604 /* LZHTabBigButton.m */,
+				9953E2E71E0D238700F55604 /* LZHTabBigButton.h */,
+				9953E2E81E0D238700F55604 /* LZHTabBarController.m */,
+				9953E2E91E0D238700F55604 /* LZHTabBarController.h */,
+				9953E2EA1E0D238700F55604 /* LZHTabBar.m */,
+				9953E2EB1E0D238700F55604 /* LZHTabBar.h */,
+			);
+			name = "自定义UITabBar";
+			sourceTree = "<group>";
+		};
+		9953E2D61E0D221000F55604 /* announce */ = {
+			isa = PBXGroup;
+			children = (
+				9953E2D91E0D22C300F55604 /* announceViewController.h */,
+				9953E2DA1E0D22C300F55604 /* announceViewController.m */,
+			);
+			name = announce;
+			sourceTree = "<group>";
+		};
+		9953E2D81E0D227900F55604 /* information */ = {
+			isa = PBXGroup;
+			children = (
+				9953E2DF1E0D22FF00F55604 /* informationViewController.h */,
+				9953E2E01E0D22FF00F55604 /* informationViewController.m */,
+			);
+			name = information;
+			sourceTree = "<group>";
+		};
+		9953E2F11E0D24D000F55604 /* 自定义UITabBar图片 */ = {
+			isa = PBXGroup;
+			children = (
+				9953E2F21E0D255500F55604 /* tabBar05.png */,
+				9953E2F31E0D255500F55604 /* tabBar04.png */,
+				9953E2F41E0D255500F55604 /* tabBar03.png */,
+				9953E2F51E0D255500F55604 /* tabBar02.png */,
+				9953E2F61E0D255500F55604 /* tabBar01.png */,
+				9953E2F71E0D255500F55604 /* tab_group_back@3x.png */,
+			);
+			name = "自定义UITabBar图片";
+			sourceTree = "<group>";
+		};
 		99552E0E1E013E660091EAE9 /* DrawFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +440,9 @@
 		99E41F291DED0E0D00F32968 /* Liankeji */ = {
 			isa = PBXGroup;
 			children = (
+				9953E2D81E0D227900F55604 /* information */,
+				9953E2D61E0D221000F55604 /* announce */,
+				9953E2D51E0D21BF00F55604 /* 自定义UITabBar */,
 				9961CF921E0224520021D123 /* CoomunicatePage */,
 				99552E0E1E013E660091EAE9 /* DrawFile */,
 				99E41F7F1DED5C9100F32968 /* Common */,
@@ -490,6 +574,7 @@
 		99E41F761DED4BF500F32968 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				9953E2F11E0D24D000F55604 /* 自定义UITabBar图片 */,
 				99EF89761E038A28002836B3 /* firstPage */,
 				9957A2491E0182A60022B92B /* 4.png */,
 				99BDE0591DF3E69F0079EEF8 /* 3.jpg */,
@@ -653,25 +738,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				99EF898C1E03D232002836B3 /* nav2.png in Resources */,
+				9953E2F91E0D255500F55604 /* tabBar04.png in Resources */,
 				99BDE05C1DF3E69F0079EEF8 /* 3.jpg in Resources */,
 				9921800D1E07AF9700070D46 /* 2.png in Resources */,
 				99E41F7E1DED5AEF00F32968 /* tab2.png in Resources */,
 				99EF89881E03D0B8002836B3 /* nav3.png in Resources */,
 				992C69361E0A0DE00052D21B /* user.png in Resources */,
 				992C69381E0A1C270052D21B /* test.png in Resources */,
+				9953E2F81E0D255500F55604 /* tabBar05.png in Resources */,
 				99EF897B1E038AD6002836B3 /* a1.png in Resources */,
 				99AA38E01E08C1F6000A57BC /* sidemenu_241.png in Resources */,
 				997546BC1E081887003AB8CF /* 1_50.png in Resources */,
+				9953E2FD1E0D255500F55604 /* tab_group_back@3x.png in Resources */,
 				99E41F3A1DED0E0D00F32968 /* LaunchScreen.storyboard in Resources */,
+				9953E2FB1E0D255500F55604 /* tabBar02.png in Resources */,
 				9957A24A1E0182A60022B92B /* 4.png in Resources */,
 				99AA38DF1E08C1F6000A57BC /* sidemenu_121.png in Resources */,
 				99E41F371DED0E0D00F32968 /* Assets.xcassets in Resources */,
 				99EF898A1E03D1CE002836B3 /* nav1.png in Resources */,
+				9953E2FC1E0D255500F55604 /* tabBar01.png in Resources */,
 				997546BB1E081887003AB8CF /* 1_25.png in Resources */,
 				997546BD1E081887003AB8CF /* 1_75.png in Resources */,
 				99AA38E11E08C1F6000A57BC /* sidemenu_362.png in Resources */,
 				99E41F7A1DED4D2000F32968 /* tab1.png in Resources */,
 				9921800C1E07AF9700070D46 /* 1.png in Resources */,
+				9953E2FA1E0D255500F55604 /* tabBar03.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,17 +846,24 @@
 				992D730E1DF1557300FFD2DD /* GetCellHeight.m in Sources */,
 				99AA38F01E092C8C000A57BC /* sideMenuButton.m in Sources */,
 				99552E171E013FFF0091EAE9 /* leftDrawerViewController.m in Sources */,
+				9953E2E11E0D22FF00F55604 /* informationViewController.m in Sources */,
 				99E41F851DED696100F32968 /* ShareNetWorkState.m in Sources */,
+				9953E2EF1E0D238700F55604 /* LZHTabBarController.m in Sources */,
+				9953E2DB1E0D22C300F55604 /* announceViewController.m in Sources */,
 				99AA38E31E08C296000A57BC /* lzhdownMenuView.m in Sources */,
+				9953E2EE1E0D238700F55604 /* LZHTabBigButton.m in Sources */,
 				9961CFA41E026DF20021D123 /* firstPageButtonGroup.m in Sources */,
 				999D99471DF04C950067CFBA /* ShareDataBase.m in Sources */,
 				99E41F881DED7EDD00F32968 /* ShareUrlString.m in Sources */,
 				99E41F731DED2B1E00F32968 /* PersonalTableViewCell.m in Sources */,
 				99EF89751E0384DC002836B3 /* CenterSmallView.m in Sources */,
 				9961CF9E1E0230830021D123 /* rightDrawerTableController.m in Sources */,
+				9953E2ED1E0D238700F55604 /* LZHTabButton.m in Sources */,
 				99BDE0561DF3DE020079EEF8 /* FFScrollView.m in Sources */,
+				9953E2EC1E0D238700F55604 /* UIView+Extension.m in Sources */,
 				99E41F661DED291A00F32968 /* NavViewControllerForPersonal.m in Sources */,
 				99AA38EC1E09053B000A57BC /* LMJScrollTextView.m in Sources */,
+				9953E2F01E0D238700F55604 /* LZHTabBar.m in Sources */,
 				9961CFA11E023BD80021D123 /* SateliteMenu.m in Sources */,
 				99554A4E1DF012BF0028A59E /* ShareHomePath.m in Sources */,
 				9961CF9B1E02250D0021D123 /* CommunicateNavigationViewController.m in Sources */,

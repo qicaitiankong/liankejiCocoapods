@@ -7,18 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "LZHTabBarController.h"
 
-#import "FirstPageViewController.h"
-#import "NavViewControllerForFirstPage.h"
-
-#import "PersonalTableViewController.h"
-#import "NavViewControllerForPersonal.h"
-//首页的左右侧拉，实际项目按需要再变化
-#import "leftDrawerViewController.h"
-#import "rightDrawerTableController.h"
-
-#import "CommunicateFirstViewController.h"
-#import "CommunicateNavigationViewController.h"
+//#import "FirstPageViewController.h"
+//#import "NavViewControllerForFirstPage.h"
+//
+//#import "PersonalTableViewController.h"
+//#import "NavViewControllerForPersonal.h"
+////首页的左右侧拉，实际项目按需要再变化
+//#import "leftDrawerViewController.h"
+//#import "rightDrawerTableController.h"
+//
+//#import "CommunicateFirstViewController.h"
+//#import "CommunicateNavigationViewController.h"
 
 @interface AppDelegate ()
 
@@ -29,30 +30,34 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"%lf,%lf",[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height);
+    
+//    //首页中的左侧抽屉
+//    leftDrawerViewController *leftVC = [[leftDrawerViewController alloc]init];
+//    rightDrawerTableController *rightTableVC = [[rightDrawerTableController alloc]initWithStyle:UITableViewStylePlain];
+//    //首页
+//    FirstPageViewController *firstpageVC = [[FirstPageViewController alloc]init];
+//    NavViewControllerForFirstPage *firstPageNav = [[NavViewControllerForFirstPage alloc]initWithRootViewController:firstpageVC];
+//    //社区交流
+//    CommunicateFirstViewController *communicateVC = [[CommunicateFirstViewController alloc]init];
+//    CommunicateNavigationViewController *communicateNav = [[CommunicateNavigationViewController alloc]initWithRootViewController:communicateVC];
+//    //个人中心我的
+//    PersonalTableViewController *personalVC = [[PersonalTableViewController alloc]init];
+//    NavViewControllerForPersonal *personalNav = [[NavViewControllerForPersonal alloc]initWithRootViewController:personalVC];
+//    
+//     //创建抽屉对象，即实现类似于QQ界面,若后期给社区和我的添加侧拉，并在TABBAR上显示图标，需要在MMDrawerController.m中设置标题及图片
+//    self.drawer = [[MMDrawerController alloc]initWithCenterViewController:firstPageNav leftDrawerViewController:leftVC rightDrawerViewController:rightTableVC];
+//    //NSLog(@"抽屉地址：%p %p",self.drawer,drawer2);
+//    self.drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+//    self.drawer.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+//    self.drawer.maximumLeftDrawerWidth = 200;
+//    
+//    UITabBarController *tabBarControl = [[UITabBarController alloc]init];
+//    [tabBarControl setViewControllers:@[self.drawer,communicateNav,personalNav]];
+    //self.window.rootViewController = tabBarControl;
     self.window = [[UIWindow alloc]init];
-    //首页中的左侧抽屉
-    leftDrawerViewController *leftVC = [[leftDrawerViewController alloc]init];
-    rightDrawerTableController *rightTableVC = [[rightDrawerTableController alloc]initWithStyle:UITableViewStylePlain];
-    //首页
-    FirstPageViewController *firstpageVC = [[FirstPageViewController alloc]init];
-    NavViewControllerForFirstPage *firstPageNav = [[NavViewControllerForFirstPage alloc]initWithRootViewController:firstpageVC];
-    //社区交流
-    CommunicateFirstViewController *communicateVC = [[CommunicateFirstViewController alloc]init];
-    CommunicateNavigationViewController *communicateNav = [[CommunicateNavigationViewController alloc]initWithRootViewController:communicateVC];
-    //个人中心我的
-    PersonalTableViewController *personalVC = [[PersonalTableViewController alloc]init];
-    NavViewControllerForPersonal *personalNav = [[NavViewControllerForPersonal alloc]initWithRootViewController:personalVC];
     
-     //创建抽屉对象，即实现类似于QQ界面,若后期给社区和我的添加侧拉，并在TABBAR上显示图标，需要在MMDrawerController.m中设置标题及图片
-    self.drawer = [[MMDrawerController alloc]initWithCenterViewController:firstPageNav leftDrawerViewController:leftVC rightDrawerViewController:rightTableVC];
-    //NSLog(@"抽屉地址：%p %p",self.drawer,drawer2);
-    self.drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-    self.drawer.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
-    self.drawer.maximumLeftDrawerWidth = 200;
-    
-    UITabBarController *tabBarControl = [[UITabBarController alloc]init];
-    [tabBarControl setViewControllers:@[self.drawer,communicateNav,personalNav]];
-    self.window.rootViewController = tabBarControl;
+    LZHTabBarController *tab = [[LZHTabBarController alloc]init];
+    self.window.rootViewController = tab;
     [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
