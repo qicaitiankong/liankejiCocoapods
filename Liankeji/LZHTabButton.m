@@ -25,53 +25,53 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-        //self.backgroundColor = [UIColor grayColor];
+        self.imageView.hidden = YES;
+        self.titleLabel.hidden = YES;
+        self.ownTitleColor = [UIColor grayColor];
+        
+        self.ownImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 5, 20, 20)];
+        //self.ownImageView.backgroundColor = [UIColor redColor];
+        UIImage *image = [_ownImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [self.ownImageView setImage:image];
+        [self addSubview:self.ownImageView];
+        
+        
+        self.ownLable = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
+        self.ownLable.textAlignment = NSTextAlignmentCenter;
+        [self.ownLable setText:self.ownLableTitle];
+        self.ownLable.font = [UIFont systemFontOfSize:10];
+        self.ownLable.textColor = self.ownTitleColor;
+        //[self.ownLable setTextColor:[UIColor yellowColor]];
+        [self addSubview:self.ownLable];
+        
+        
+        
+       // self.backgroundColor = [UIColor grayColor];
     }
     return self;
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    NSLog(@"layoutSubviews");
-    //自定义
-    CGFloat image_width = self.width * 0.3;
-    CGFloat image_height = self.height * 0.4;
+   // NSLog(@"layoutSubviews");
+    //调整imageView位置
+    CGFloat image_width = self.width * 0.45;
+    CGFloat image_height = self.height * 0.55;
     
-    //
-    self.ownImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 5, image_width, image_height)];
-    [self.ownImageView setImage:_ownImage];
-    
-    [self addSubview:self.ownImageView];
-    //self.ownImageView.backgroundColor = [UIColor greenColor];
+    self.ownImageView.width = image_width;
+    self.ownImageView.height = image_height;
     self.ownImageView.center = CGPointMake(self.width / 2, self.ownImageView.center.y);
     
     
-    
-    
-    CGFloat lable_width = self.ownImageView.width;
+    CGFloat lable_width = self.width;
     CGFloat lable_height = self.height - self.ownImageView.height - self.ownImageView.y;
     
+    self.ownLable.y = self.ownImageView.y + self.ownImageView.height;
+    self.ownLable.width = lable_width;
+    self.ownLable.height = lable_height;
     
-    self.ownLable = [[UILabel alloc]initWithFrame:CGRectMake(self.ownImageView.x, self.ownImageView.y + self.ownImageView.height, lable_width, lable_height)];
-    self.ownLable.textAlignment = NSTextAlignmentCenter;
-    
-    [self.ownLable setText:self.ownLableTitle];
-    self.ownLable.font = [UIFont systemFontOfSize:10];
-    self.ownLable.textColor = [UIColor grayColor];
-    
-    //self.ownLable.backgroundColor = [UIColor redColor];
-    [self addSubview:self.ownLable];
-    
-    
-    //缩小点击区域，只处理宽度
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    self.ownImageView.image = self.ownImage;
+    self.ownLable.text = self.ownLableTitle;
+    self.ownLable.textColor = self.ownTitleColor;
     
     
 }

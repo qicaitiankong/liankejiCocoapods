@@ -57,20 +57,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setNavigationControlerrTransparent];
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.newsArr = [[NSMutableArray alloc]initWithCapacity:2];
     self.view.backgroundColor = [UIColor blackColor];
     [self setNavigationButton];
-    
     [self addSateliteMenu];
     [self initTableView];
 }
 //设置导航栏透明
 - (void)setNavigationControlerrTransparent{
     self.navigationItem.title = @"链科技";
+    
     
     [self.navigationController.navigationBar hy_setBackgroundViewWithColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar hy_setBackgroundViewWithAlpha:0];
@@ -84,8 +82,12 @@
             alpha = 0.8;
         }
         [self.navigationController.navigationBar hy_setBackgroundViewWithAlpha:alpha];
+        //修改标题颜色
+         [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
     } else {
         [self.navigationController.navigationBar hy_setBackgroundViewWithAlpha:0];
+        //恢复标题颜色
+        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     }
 
 }
@@ -181,7 +183,7 @@
     [self.tableHeaderView addSubview:self.anounceView];
     [self.tableHeaderView addSubview:self.groupButton];
     [self.tableHeaderView addSubview:self.scinenceView];
-    NSLog(@"科技头条高度：%lf",self.scinenceView.bounds.size.height);
+    //NSLog(@"科技头条高度：%lf",self.scinenceView.bounds.size.height);
     return self.tableHeaderView;
 }
 
@@ -221,7 +223,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    NSLog(@"表头高度%lf",self.tableHeaderView.bounds.size.height);
+    //NSLog(@"表头高度%lf",self.tableHeaderView.bounds.size.height);
     [self crateTableHeaderView];
     return self.tableHeaderView.bounds.size.height;
 }
@@ -248,7 +250,7 @@
         tableCreateSuc = [dataBaseClass createTable:createTabelSql];
     }
     if(tableCreateSuc){
-        NSLog(@"成功");
+       // NSLog(@"成功");
         
     }
     

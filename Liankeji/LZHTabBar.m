@@ -15,7 +15,7 @@
 #define TABBAR_BUTTON_LEFT_SPACE 20
 
 @interface LZHTabBar ()
-
+//保持对上一次点的按钮的记忆
 @property (nonatomic,weak) UIButton *selectButton;
 //大按钮
 @property (nonatomic,weak)LZHTabBigButton *bigButton;
@@ -29,6 +29,8 @@
 @implementation LZHTabBar
 //tabBar tag
 static NSInteger const LZHTabBarTag = 12000;
+
+//首页，资讯、发布。社区，我的 tag = 12000,12001,12002,12003,12004
 
 UIImageView *backImageView;
 
@@ -61,11 +63,7 @@ UIImageView *backImageView;
         if(i == 2){
             LZHTabBigButton *btn = [LZHTabBigButton buttonWithType:UIButtonTypeCustom];
             
-           // CGFloat width = ([UIScreen mainScreen].bounds.size.width - 2*TABBAR_BUTTON_LEFT_SPACE - 4 * TABBAR_BUTTON_SPACE) / 5;
-            
-           // btn.frame = CGRectMake(TABBAR_BUTTON_LEFT_SPACE + i * (TABBAR_BUTTON_SPACE + width), 0, width, 49);
-            
-            btn.tag = self.subviews.count + LZHTabBarTag - 1;
+            btn.tag = self.subviews.count + LZHTabBarTag - 1;//3 + 12000 - 1
             //设置自定义属性
             btn.ownBigImage = item.image;
             btn.ownBigTitle = item.title;
@@ -77,12 +75,8 @@ UIImageView *backImageView;
         }else{
             LZHTabButton *btn = [LZHTabButton buttonWithType:UIButtonTypeCustom];
             
-            //CGFloat width = ([UIScreen mainScreen].bounds.size.width - 2*TABBAR_BUTTON_LEFT_SPACE - 4 * TABBAR_BUTTON_SPACE) / 5;
-            
-             // btn.frame = CGRectMake(TABBAR_BUTTON_LEFT_SPACE + i * (TABBAR_BUTTON_SPACE + width), 0, width, 49);
-            
             btn.tag = self.subviews.count + LZHTabBarTag -1;
-            btn.adjustsImageWhenHighlighted = NO;
+           // btn.adjustsImageWhenHighlighted = NO;
             btn.item = item;
             
             btn.ownImage = item.image;
@@ -94,15 +88,18 @@ UIImageView *backImageView;
             [self addSubview:btn];
             // 子控件的个数
             NSInteger subViewsCount = 1;
-            if (self.selectIndex) {
+        if (self.selectIndex) {
                 subViewsCount = self.selectIndex + 1;
             }
             if (self.subviews.count - 1 == subViewsCount) {
                 self.currentSelectedIndex = self.subviews.count - 1 - 1;
+              
                 // 默认选中第一个
-                [self btnClick:btn];
+                self.selectButton = btn;
+                btn.ownImage = item.selectedImage;
+                //[btn.ownImageView setImage:item.selectedImage];
+                btn.ownTitleColor = [UIColor blueColor];
             }
-
         }
     }
 }
@@ -114,7 +111,46 @@ UIImageView *backImageView;
 }
 
 - (void)btnClick:(UIButton*)_b{
+    //简化tag
+    NSInteger simpleTag = _b.tag - LZHTabBarTag;
+    //当前点击的item(image,selectedImage)
+    UITabBarItem *currentItem = _items[simpleTag];
     
+    //获取上一个点击按钮的item
+    UITabBarItem *formerButtonTabBarItem = _items[self.selectButton.tag - LZHTabBarTag];
+    
+    //点击的是大按钮
+    if(simpleTag == 2){
+        if(self.selectButton != _b){
+            //重置上次点击按钮的状态
+            LZHTabButton *smallButton = (LZHTabButton*)self.selectButton;
+            smallButton.ownImage = formerButtonTabBarItem.image;
+            smallButton.ownTitleColor = [UIColor grayColor];
+            //改变当前点击按钮的状态
+            LZHTabBigButton *bigButton =(LZHTabBigButton*) _b;
+            bigButton.ownBigImage = currentItem.image;
+            bigButton.ownTitleColor = [UIColor blueColor];
+            
+        }
+    }else{//点击的是小按钮
+        if(self.selectButton != _b){//不是同一个按钮
+            
+            if(self.selectButton.tag == LZHTabBarTag + 2){//上次的按钮是中心按钮,恢复上次的按钮的状态
+                LZHTabBigButton *bigButton =(LZHTabBigButton*) self.selectButton;
+                bigButton.ownBigImage = formerButtonTabBarItem.image;
+                bigButton.ownTitleColor = [UIColor grayColor];
+                
+            }else{//上次的按钮是小按钮，恢复上次点击的按钮的状态
+                LZHTabButton *formerSmallButton =(LZHTabButton*) self.selectButton;
+                formerSmallButton.ownImage = formerButtonTabBarItem.image;
+                formerSmallButton.ownTitleColor = [UIColor grayColor];
+            }
+            //改变当前点击的按钮的状态
+            LZHTabButton *smallButton = (LZHTabButton*)_b;
+             smallButton.ownImage = currentItem.selectedImage;
+            smallButton.ownTitleColor = [UIColor blueColor];
+        }
+    }
     self.selectButton.selected = NO;
     _b.selected = YES;
     self.selectButton = _b;
@@ -132,39 +168,62 @@ UIImageView *backImageView;
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    NSUInteger count = self.subviews.count;
-    NSLog(@"subViewCount:%li",count);
-    CGFloat x = 0;
+//    NSUInteger count = self.subviews.count;
+//    NSLog(@"subViewCount:%li",count);
+//    CGFloat x = 0;
+//    CGFloat y = 0;
+//    CGFloat w = [UIScreen mainScreen].bounds.size.width / (count - 1);
+//    CGFloat h = self.height;
+//    
+//    //修改位置
+//    //i必须从1开始，因为第一个子视图是背景图片imageView,第二个才是按钮
+//        for(int i = 1 ; i < count ; i ++){
+//            UIButton *btn = self.subviews[i];
+//            x = (i - 1) * w;
+//            if(i == 3){
+//                y  = -12;
+//                h  = self.height + 12;
+//            }else{
+//                y = 0;
+//                h = self.height;
+//            }
+//            btn.frame = CGRectMake(x, y, w, h);
+//        }
+//    
+    
+    
+    //试图改变中心点布局
+    
+    NSUInteger count = 5;
+   
     CGFloat y = 0;
-    CGFloat w = [UIScreen mainScreen].bounds.size.width / (count - 1);
+    CGFloat w = [UIScreen mainScreen].bounds.size.width / 8.5;
+    CGFloat x = 0;
+    
     CGFloat h = self.height;
+    //中心点：1/10,3/10,5/10,7/10,9/10
+    CGFloat centerX = [UIScreen mainScreen].bounds.size.width / 10;
+    
     
     //修改位置
-//    for(int i = 0 ; i < count; i ++){
-//        UIButton *btn = self.subviews[i];
-//        x = i * w;
-//        if(i == 2){
-//            y  = -12;
-//            h  = self.height + 12;
-//        }else{
-//            y = 0;
-//            h = self.height;
-//        }
-//        btn.frame = CGRectMake(x, y, w, h);
-//    }
-    //修改位置
-        for(int i = 1 ; i < count ; i ++){
-            UIButton *btn = self.subviews[i];
-            x = (i - 1) * w;
-            if(i == 3){
-                y  = -12;
-                h  = self.height + 12;
-            }else{
-                y = 0;
-                h = self.height;
-            }
-            btn.frame = CGRectMake(x, y, w, h);
+    //i必须从1开始，因为第一个子视图是背景图片imageView,第二个才是按钮
+    for(int i = 1 ; i <= count ; i ++){
+        UIButton *btn = self.subviews[i];
+        x = 0;
+        if(i == 3){
+            y  = -12;
+            h  = self.height + 12;
+            
+           // btn.backgroundColor = [UIColor grayColor];
+
+        }else{
+            y = 0;
+            h = self.height;
         }
+        btn.frame = CGRectMake(x, y, w, h);
+        btn.center = CGPointMake(centerX + centerX * 2 * (i - 1), btn.center.y);
+    }
+
 
     
 }

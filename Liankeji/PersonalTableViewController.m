@@ -25,7 +25,7 @@
 
     GetCellHeight *h1 =  [GetCellHeight ShareCellHeight];
     GetCellHeight *h2 =  [GetCellHeight ShareCellHeight];
-    NSLog(@"h1=%p,h2=%p",h1,h2);
+   // NSLog(@"h1=%p,h2=%p",h1,h2);
     self.view.backgroundColor = [UIColor whiteColor];
    
     NSString *url1 = @"http://img.mp.itc.cn/upload/20161204/a5c2b6b31f0d49ff8833d58169266002_th.jpg";
@@ -57,7 +57,7 @@
     }
 }
 
-//内存警告
+//处理缓存过多的内存警告
 - (void)dealWithMemoryWarning{
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     //取消正在下载的工作

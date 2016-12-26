@@ -23,4 +23,10 @@
 #define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 
+#define NAVIGATION_HEIGHT self.navigationController.navigationBar.frame.size.height
+//电池栏高度
+#define STATUSBAR_HEIGHT     [UIApplication sharedApplication].statusBarFrame.size.height
+
+
+
 #endif /* appCommonAttributes_h */

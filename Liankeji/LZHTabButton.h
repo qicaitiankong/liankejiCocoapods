@@ -16,6 +16,9 @@
 //自定义lable标题
 @property (strong,nonatomic)NSString *ownLableTitle;
 
+@property (strong,nonatomic)UIColor *ownTitleColor;
+
+
 //BarItem
 @property (nonatomic,strong)UITabBarItem *item;
 

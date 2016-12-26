@@ -15,5 +15,7 @@
 @property (strong,nonatomic)UIImage *ownBigImage;
 //lable标题
 @property (strong,nonatomic)NSString *ownBigTitle;
+//TITLE颜色
+@property (strong,nonatomic)UIColor *ownTitleColor;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "LZHTabBarController.h"
 #import "LZHTabBar.h"
+#import "NavViewControllerForFirstPage.h"
 
 @interface LZHTabBarController ()<UITabBarControllerDelegate,UINavigationControllerDelegate,LZHTabBarDelegate>
 /** 保存所有控制器对应按钮的内容（UITabBarItem）*/
@@ -86,36 +87,39 @@
     
     //添加所有的子控制器
     FirstPageViewController *vc1 = [[FirstPageViewController alloc]init];
-    [self addOneChildVC:vc1 title:@"首页" imageName:@"tabBar01" selectedImageName:@"tabBar01"];
+    [self addOneChildVC:vc1 title:@"首页" imageName:@"icon_shouye_weidianji@3x"selectedImageName:@"icon_shouye_dianji@3x"];
     
     informationViewController *vc2 = [[informationViewController alloc]init];
-    [self addOneChildVC:vc2 title:@"资讯" imageName:@"tabBar02" selectedImageName:@"tabBar02"];
+    [self addOneChildVC:vc2 title:@"资讯" imageName:@"icon_zixun_weidianji" selectedImageName:@"icon_zixun_dianji"];
     
     announceViewController *vc3 = [[announceViewController alloc]init];
-    [self addOneChildVC:vc3 title:@"发布" imageName:@"tabBar03" selectedImageName:@"tabBar03"];
+    [self addOneChildVC:vc3 title:@"发布" imageName:@"icon_fabu@3x" selectedImageName:@"icon_fabu@3x"];
     
     CommunicateFirstViewController *vc4 = [[CommunicateFirstViewController alloc]init];
-    [self addOneChildVC:vc4 title:@"社区" imageName:@"tabBar04" selectedImageName:@"tabBar04"];
+    [self addOneChildVC:vc4 title:@"社区" imageName:@"icon_shequ_weidianji@3x" selectedImageName:@"icon_shequ_dianji@3x"];
     
     PersonalTableViewController *vc5 = [[PersonalTableViewController alloc]init];
-    [self addOneChildVC:vc5 title:@"我的" imageName:@"tabBar05" selectedImageName:@"tabBar05"];
+    [self addOneChildVC:vc5 title:@"我的" imageName:@"icon_wode_weidianji@3x" selectedImageName:@"icon_wode_dianji@3x"];
     
     
 }
 
 -(void)addOneChildVC:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName {
     childVc.tabBarItem.title = title;
+    UIImage *image = [UIImage imageNamed:imageName];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    childVc.tabBarItem.image = [UIImage imageNamed:imageName];
+    childVc.tabBarItem.image = image;
     
     UIImage *selectImage = [UIImage imageNamed:selectedImageName];
     
-    //selectImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    selectImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
     childVc.tabBarItem.selectedImage = selectImage;
     //添加所有控制器对应的按钮的内容
     [self.items addObject:childVc.tabBarItem];
     
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:childVc];
+    NavViewControllerForFirstPage *nav = [[NavViewControllerForFirstPage alloc]initWithRootViewController:childVc];
     nav.delegate = self;
     [self addChildViewController:nav];
 }
