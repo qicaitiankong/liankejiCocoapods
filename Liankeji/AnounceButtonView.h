@@ -8,12 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol announceButtonClickDelegate <NSObject>
+
+- (void)announceButtonClick:(NSInteger)index;
+
+@end
+
+
+
 @interface AnounceButtonView : UIView
 
 
 @property (strong,nonatomic)UIImageView *ownImageView;
 
 @property (strong,nonatomic)UILabel *ownLable;
+
+@property (assign,nonatomic)id <announceButtonClickDelegate>
+    announceDelegate;
+
+-(instancetype)initWithFrame:(CGRect)frame delegate:(id<announceButtonClickDelegate>)_delegate buttonTag:(NSInteger)buttonTag;
 
 
 @end

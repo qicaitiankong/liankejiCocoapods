@@ -142,7 +142,7 @@
         UIImage *image = [UIImage imageNamed:@"a1"];
         [buttonImageArr addObject:image];
     }
-    firstPageButtonGroup *buttonGroup = [[firstPageButtonGroup alloc]initWithFrame:CGRectMake(0, self.scoView.bounds.size.height + self.anounceView.bounds.size.height, SCREEN_WIDTH,BUTTON_GROUP_HEIGHT) titleArray:lableTitleArr imageArr:buttonImageArr groupDelegate:self];
+    firstPageButtonGroup *buttonGroup = [[firstPageButtonGroup alloc]initWithFrame:CGRectMake(0, self.scoView.bounds.size.height + self.anounceView.bounds.size.height , SCREEN_WIDTH,BUTTON_GROUP_HEIGHT) titleArray:lableTitleArr imageArr:buttonImageArr groupDelegate:self];
     return buttonGroup;
 }
 //中间按钮点击事件
@@ -152,7 +152,7 @@
 
 //科技头条
 - (scinenceHeaderView*)createScientHeaderView{
-    scinenceHeaderView *scienceView = [[scinenceHeaderView alloc]initWithFrame:CGRectMake(0, self.scoView.bounds.size.height + self.anounceView.bounds.size.height + self.groupButton.bounds.size.height, SCREEN_WIDTH, 60)];
+    scinenceHeaderView *scienceView = [[scinenceHeaderView alloc]initWithFrame:CGRectMake(0, self.groupButton.frame.origin.y+ self.groupButton.bounds.size.height, SCREEN_WIDTH, 60)];
     
     return scienceView;
 }
