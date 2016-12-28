@@ -32,6 +32,7 @@
 @implementation announceViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     NSLog(@"发布首页");
     

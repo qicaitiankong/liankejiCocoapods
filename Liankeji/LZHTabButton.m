@@ -55,7 +55,8 @@
    // NSLog(@"layoutSubviews");
     //调整imageView位置
     CGFloat image_width = self.width * 0.45;
-    CGFloat image_height = self.height * 0.55;
+    //CGFloat image_height = self.height * 0.55;
+    CGFloat image_height = self.width * 0.45;
     
     self.ownImageView.width = image_width;
     self.ownImageView.height = image_height;

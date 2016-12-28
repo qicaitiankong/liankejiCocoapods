@@ -35,7 +35,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createScrollButtonGroup];
-    [self createTableView:0];
+    //[self createTableView:0];
         
     
     // Do any additional setup after loading the view.
@@ -59,6 +59,10 @@
         [scrollViewMenu addButton:button];
     }
 }
+
+
+
+
 //按钮组点击事件
 - (void)buttonHandler:(UIButton*)_b{
     if(scrollViewSelectButton != _b){
@@ -77,6 +81,7 @@
     }
     NSLog(@"点击按钮%li",_b.tag);
 }
+
 //移除当前表视图
 -(void)removeCurrentTableView{
     if(nil != ownCurrentTableView){
@@ -150,6 +155,10 @@
     NSLog(@"设置高度");
     return 100;
 }
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning {

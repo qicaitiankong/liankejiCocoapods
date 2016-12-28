@@ -130,7 +130,7 @@
 }
 //创建最新公告
 - (newAnnouncementView*)createAnounmentView{
-    newAnnouncementView *anounmentView = [[newAnnouncementView alloc]initWithFrame:CGRectMake(0, self.scoView.bounds.size.height, SCREEN_WIDTH, 60)];
+    newAnnouncementView *anounmentView = [[newAnnouncementView alloc]initWithFrame:CGRectMake(0, self.scoView.bounds.size.height, SCREEN_WIDTH, 30)];
     return anounmentView;
 }
 
